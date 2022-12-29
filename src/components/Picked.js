@@ -57,17 +57,26 @@ export function Picked(props) {
     }
   }, [isHide])
 
+  let styles;
+  if (result === "YOU WIN") { styles = { color: "#3FE0AD" } }
+  if (result === "YOU LOSE") { styles = { color: "#E0655E" } }
+
   setTimeout(() => setIsHide(false), 1000);
 
   return (
     <div className="picked" style={{ gridTemplateColumns: !isHide ? "1fr 1fr 1fr" : "1fr 100px 1fr" }}>
       <div className="picked__block">
         <h2 className="picked__title">YOU PICKED</h2>
-        <Button name={props.choice} />
+        <div style={{ position: "relative" }}>
+          <Button name={props.choice} />
+          {result === "YOU WIN" && <div style={{ position: "absolute", top: "0", width: "200px", height: "200px", borderRadius: "50%", boxShadow: "0 0 60px #3FE0AD", zIndex: "-1" }} />}
+        </div>
       </div>
 
       {!isHide ? <div>
-        <div className="picked__result">{result}</div>
+        <div className="picked__result" style={styles}>
+          {result}
+        </div>
         <button
           className="picked__button"
           onClick={() => props.setStep(1)}
@@ -76,7 +85,12 @@ export function Picked(props) {
 
       <div className="picked__block">
         <h2 className="picked__title">THE HOUSE PICKED</h2>
-        {!isHide ? <Button name={houseChoiceName} /> : <div className="picked__circle"></div>}
+        {!isHide ?
+          <div style={{ position: "relative" }}>
+            <Button name={houseChoiceName} result={result} />
+            {result === "YOU LOSE" && <div style={{ position: "absolute", top: "0", width: "200px", height: "200px", borderRadius: "50%", boxShadow: "0 0 60px #E0655E", zIndex: "-1" }} />}
+          </div>
+          : <div className="picked__circle"></div>}
       </div>
     </div>
   )

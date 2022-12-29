@@ -231,7 +231,7 @@ button {
   margin-top: calc(50px);
   width: calc(var(--width) / 2);
   height: calc(var(--width) / 2);
-  background-color: #141738;
+  background-color: #1417388f;
   border-radius: 50%;
 }
 
