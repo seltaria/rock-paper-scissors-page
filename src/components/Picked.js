@@ -1,4 +1,5 @@
 import React from "react";
+import { useSpring, animated } from "react-spring";
 import { Button } from "./Button";
 
 export function Picked(props) {
@@ -61,37 +62,44 @@ export function Picked(props) {
   if (result === "YOU WIN") { styles = { color: "#3FE0AD" } }
   if (result === "YOU LOSE") { styles = { color: "#E0655E" } }
 
+  const userChoiceProps = useSpring({ from: { opacity: 0, x: -20 }, to: { opacity: 1, x: 0 } });
+  const houseChoiceProps = useSpring({ from: { opacity: 0, x: 20 }, to: { opacity: 1, x: 0 }, delay: 1000 });
+  const btnProps = useSpring({ from: { opacity: 0, y: -20 }, to: { opacity: 1, y: 0 }, delay: 1100 });
+
   setTimeout(() => setIsHide(false), 1000);
 
   return (
-    <div className="picked" style={{ gridTemplateColumns: !isHide ? "1fr 1fr 1fr" : "1fr 100px 1fr" }}>
+    // <div className="picked" style={{ gridTemplateColumns: !isHide ? "1fr 1fr 1fr" : "1fr 100px 1fr" }}>
+    <div className="picked">
       <div className="picked__block">
         <h2 className="picked__title">YOU PICKED</h2>
-        <div style={{ position: "relative" }}>
+        <animated.div style={userChoiceProps}>
           <Button name={props.choice} />
-          {result === "YOU WIN" && <div style={{ position: "absolute", top: "0", width: "200px", height: "200px", borderRadius: "50%", boxShadow: "0 0 60px #3FE0AD", zIndex: "-1" }} />}
-        </div>
+          {/* {result === "YOU WIN" && <div style={{ position: "absolute", top: "0", width: "200px", height: "200px", borderRadius: "50%", boxShadow: "0 0 60px #3FE0AD", zIndex: "-1" }} />} */}
+        </animated.div>
       </div>
 
-      {!isHide ? <div>
-        <div className="picked__result" style={styles}>
-          {result}
-        </div>
-        <button
-          className="picked__button"
-          onClick={() => props.setStep(1)}
-        >PLAY AGAIN</button>
-      </div> : null}
+      {
+        !isHide ? <animated.div style={btnProps}>
+          <div className="picked__result" style={styles}>
+            {result}
+          </div>
+          <button
+            className="picked__button"
+            onClick={() => props.setStep(1)}
+          >PLAY AGAIN</button>
+        </animated.div> : null
+      }
 
       <div className="picked__block">
         <h2 className="picked__title">THE HOUSE PICKED</h2>
         {!isHide ?
-          <div style={{ position: "relative" }}>
+          <animated.div style={houseChoiceProps}>
             <Button name={houseChoiceName} result={result} />
-            {result === "YOU LOSE" && <div style={{ position: "absolute", top: "0", width: "200px", height: "200px", borderRadius: "50%", boxShadow: "0 0 60px #E0655E", zIndex: "-1" }} />}
-          </div>
+            {/* {result === "YOU LOSE" && <div style={{ position: "absolute", top: "0", width: "200px", height: "200px", borderRadius: "50%", boxShadow: "0 0 60px #E0655E", zIndex: "-1" }} />} */}
+          </animated.div>
           : <div className="picked__circle"></div>}
       </div>
-    </div>
+    </div >
   )
 }
