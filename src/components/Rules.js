@@ -19,7 +19,7 @@ export function Rules(props) {
           </button>
         </div>
         <div className="rules__content">
-          <img src="/images/image-rules.svg" alt="rules" />
+          <img src="./images/image-rules.svg" alt="rules" />
         </div>
       </animated.div>
     </div>
