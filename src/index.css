@@ -251,6 +251,55 @@ button {
   border-radius: 4px;
 }
 
+/*========*/
+/* RULES  */
+/*========*/
+
+.rules__button {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  padding: 12px 28px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: white;
+  border: 1px solid white;
+  border-radius: 8px;
+}
+
+.rules__modal {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 20px;
+  padding-left: 20px;
+  background-color: rgba(30, 23, 23, 0.4);
+}
+
+.rules__container {
+  width: fit-content;
+  height: fit-content;
+  padding: 44px 40px 30px;
+  color: #404365;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.rules__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.rules__header h2 {
+  font-size: 30px;
+  font-stretch: condensed;
+}
+
+
 @media (max-width: 560px) {
   :root {
     --width: 100px;
