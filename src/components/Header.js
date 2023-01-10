@@ -1,6 +1,9 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 export function Header(props) {
+  const score = useSelector((state) => state.score);
+
   return (
     <div className="header">
       <h1 className="header__title">
@@ -11,7 +14,8 @@ export function Header(props) {
           SCORE
         </span>
         <span className="header__score-count">
-          {props.score}
+          {/* {props.score} */}
+          {score}
         </span>
       </div>
     </div>

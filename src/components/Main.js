@@ -2,9 +2,7 @@ import React from "react";
 import { Button } from "./Button";
 import { Picked } from "./Picked";
 
-export function Main(props) {
-
-  // console.log('main')
+export function Main() {
 
   const [choice, setChoice] = React.useState("");
   const [houseChoice, setHouseChoice] = React.useState("");
@@ -28,8 +26,7 @@ export function Main(props) {
         <Picked
           setStep={setStep}
           choice={choice}
-          houseChoice={houseChoice}
-          setScore={props.setScore} />}
+          houseChoice={houseChoice} />}
     </div>
   )
 }

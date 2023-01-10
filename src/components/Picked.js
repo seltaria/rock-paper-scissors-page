@@ -1,5 +1,6 @@
 import React from "react";
 import { useSpring, animated } from "react-spring";
+import { useDispatch } from "react-redux";
 import { Button } from "./Button";
 
 export function Picked(props) {
@@ -7,7 +8,14 @@ export function Picked(props) {
   const [result, setResult] = React.useState("");
   const [isHide, setIsHide] = React.useState(true);
 
-  // console.log('picked')
+  const dispatch = useDispatch();
+
+  const addScore = () => {
+    dispatch({
+      type: "ADD_SCORE"
+    })
+  }
+
 
   let houseChoiceName;
   switch (props.houseChoice) {
@@ -34,7 +42,7 @@ export function Picked(props) {
           setResult("YOU LOSE");
         } else {
           setResult("YOU WIN");
-          props.setScore(prev => prev + 1);
+          addScore();
         }
       } else if (props.choice === "paper") {
         if (houseChoiceName === "paper") {
@@ -43,7 +51,7 @@ export function Picked(props) {
           setResult("YOU LOSE");
         } else {
           setResult("YOU WIN");
-          props.setScore(prev => prev + 1);
+          addScore();
         }
       } else if (props.choice === "scissors") {
         if (houseChoiceName === "scissors") {
@@ -52,7 +60,7 @@ export function Picked(props) {
           setResult("YOU LOSE");
         } else {
           setResult("YOU WIN");
-          props.setScore(prev => prev + 1);
+          addScore();
         }
       }
     }
