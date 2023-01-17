@@ -6,9 +6,12 @@ export function Header(props) {
 
   return (
     <div className="header">
-      <h1 className="header__title">
+      {props.mode === "standard" && <h1 className="header__title">
         ROCK<br />PAPER<br />SCISSORS
-      </h1>
+      </h1>}
+      {props.mode === "bonus" && <h1 className="header__title">
+        ROCK<br />PAPER<br />SCISSORS<br />LIZARD<br />SPOCK
+      </h1>}
       <div className="header__score">
         <span className="header__score-text">
           SCORE

@@ -13,6 +13,12 @@ export function Button(props) {
     case "scissors":
       styles = { background: "linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%))", boxShadow: "0px 7px 0px #CF8C21" };
       break;
+    case "lizard":
+      styles = { background: "linear-gradient(hsl(261, 73%, 60%), hsl(261, 72%, 63%))", boxShadow: "0px 7px 0px #6F33D6" };
+      break;
+    case "spock":
+      styles = { background: "linear-gradient(hsl(189, 59%, 53%), hsl(189, 58%, 57%))", boxShadow: "0px 7px 0px #4EA0BA" };
+      break;
     default:
       styles = { background: "blue" };
       break;
@@ -22,7 +28,11 @@ export function Button(props) {
     if (props.step === 1) {
       props.setChoice(props.name)
       props.setStep(prevStep => prevStep + 1)
-      props.setHouseChoice(Math.ceil(Math.random() * 3))
+      if (props.mode === "standard") {
+        props.setHouseChoice(Math.ceil(Math.random() * 3))
+      } else if (props.mode === "bonus") {
+        props.setHouseChoice(Math.ceil(Math.random() * 5))
+      }
     }
   }
 

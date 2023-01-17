@@ -146,6 +146,10 @@ button {
   background-position: center center;
 }
 
+.main__buttons.bonus {
+  background-image: url('/public/images/bg-pentagon.svg');
+}
+
 /*==========*/
 /* button   */
 /*==========*/
@@ -168,6 +172,31 @@ button {
 }
 .button:nth-child(3) {
   grid-column: 3/5;
+}
+
+.main__buttons.bonus {
+  grid-template-columns: repeat(8, calc(var(--width) / 4));
+  grid-template-rows: repeat(8, calc(var(--width) / 4));
+  gap: 25px;
+}
+.bonus .button:nth-child(1) {
+  grid-column: 4/6;
+}
+.bonus .button:nth-child(2) {
+  grid-column: 1/4;
+  grid-row: 3/5;
+}
+.bonus .button:nth-child(3) {
+  grid-column: 6/9;
+  grid-row: 3/5;
+}
+.bonus .button:nth-child(4) {
+  grid-column: 3/4;
+  grid-row: 6/7;
+}
+.bonus .button:nth-child(5) {
+  grid-column: 6/7;
+  grid-row: 6/7;
 }
 
 .button:active {
@@ -255,16 +284,24 @@ button {
 /* RULES  */
 /*========*/
 
-.rules__button {
+.main__btns {
   position: absolute;
   bottom: 30px;
   right: 30px;
+}
+
+.mode__button,
+.rules__button {
   padding: 12px 28px;
   font-size: 14px;
   letter-spacing: 1px;
   color: white;
   border: 1px solid white;
   border-radius: 8px;
+}
+
+.mode__button {
+  margin-right: 20px;
 }
 
 .rules__modal {
@@ -300,7 +337,7 @@ button {
 }
 
 
-@media (max-width: 560px) {
+@media (max-width: 600px) {
   :root {
     --width: 100px;
   }

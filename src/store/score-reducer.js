@@ -3,6 +3,9 @@ export const scoreReducer = (state = 0, action) => {
     case "ADD_SCORE": {
       return state + 1
     }
+    case "RESET_SCORE": {
+      return state = 0
+    }
     default:
       return state
   }

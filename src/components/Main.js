@@ -2,13 +2,13 @@ import React from "react";
 import { Button } from "./Button";
 import { Picked } from "./Picked";
 
-export function Main() {
+export function Main(props) {
 
   const [choice, setChoice] = React.useState("");
   const [houseChoice, setHouseChoice] = React.useState("");
   const [step, setStep] = React.useState(1);
 
-  const buttonArray = ["rock", "paper", "scissors"];
+  const buttonArray = props.mode === "standard" ? ["rock", "paper", "scissors"] : ["rock", "paper", "scissors", "lizard", "spock"];
   const buttonElements = buttonArray.map(btn =>
     <Button
       name={btn}
@@ -17,11 +17,12 @@ export function Main() {
       setStep={setStep}
       setHouseChoice={setHouseChoice}
       key={btn}
+      mode={props.mode}
     />);
 
   return (
     <div className="main">
-      {step === 1 && <div className="main__buttons">{buttonElements}</div>}
+      {step === 1 && <div className={`main__buttons ${props.mode === "bonus" ? "bonus" : ""}`}>{buttonElements}</div>}
       {step === 2 &&
         <Picked
           setStep={setStep}

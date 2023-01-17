@@ -28,37 +28,89 @@ export function Picked(props) {
     case 3:
       houseChoiceName = "scissors";
       break;
+    case 4:
+      houseChoiceName = "lizard";
+      break;
+    case 5:
+      houseChoiceName = "spock";
+      break;
     default:
       break;
   }
 
   React.useEffect(() => {
-    console.log(isHide)
     if (!isHide) {
       if (props.choice === "rock") {
         if (houseChoiceName === "rock") {
           setResult("DRAW");
         } else if (houseChoiceName === "paper") {
           setResult("YOU LOSE");
-        } else {
+        } else if (houseChoiceName === "lizard") {
           setResult("YOU WIN");
           addScore();
+        } else if (houseChoiceName === "scissors") {
+          setResult("YOU WIN");
+          addScore();
+        } else if (houseChoiceName === "spock") {
+          setResult("YOU LOSE");
         }
+
       } else if (props.choice === "paper") {
         if (houseChoiceName === "paper") {
           setResult("DRAW");
         } else if (houseChoiceName === "scissors") {
           setResult("YOU LOSE");
-        } else {
+        } else if (houseChoiceName === "rock") {
           setResult("YOU WIN");
           addScore();
+        } else if (houseChoiceName === "lizard") {
+          setResult("YOU WIN");
+          addScore();
+        } else if (houseChoiceName === "spock") {
+          setResult("YOU LOSE")
         }
+
       } else if (props.choice === "scissors") {
         if (houseChoiceName === "scissors") {
           setResult("DRAW");
         } else if (houseChoiceName === "rock") {
           setResult("YOU LOSE");
-        } else {
+        } else if (houseChoiceName === "paper") {
+          setResult("YOU WIN");
+          addScore();
+        } else if (houseChoiceName === "lizard") {
+          setResult("YOU WIN");
+          addScore();
+        } else if (houseChoiceName === "spock") {
+          setResult("YOU LOSE")
+        }
+
+      } else if (props.choice === "lizard") {
+        if (houseChoiceName === "lizard") {
+          setResult("DRAW");
+        } else if (houseChoiceName === "rock") {
+          setResult("YOU LOSE");
+        } else if (houseChoiceName === "paper") {
+          setResult("YOU WIN");
+          addScore();
+        } else if (houseChoiceName === "scissors") {
+          setResult("YOU LOSE");
+        } else if (houseChoiceName === "spock") {
+          setResult("YOU WIN");
+          addScore();
+        }
+
+      } else if (props.choice === "spock") {
+        if (houseChoiceName === "spock") {
+          setResult("DRAW");
+        } else if (houseChoiceName === "rock") {
+          setResult("YOU WIN");
+          addScore();
+        } else if (houseChoiceName === "paper") {
+          setResult("YOU LOSE");
+        } else if (houseChoiceName === "lizard") {
+          setResult("YOU LOSE");
+        } else if (houseChoiceName === "scissors") {
           setResult("YOU WIN");
           addScore();
         }
@@ -103,7 +155,7 @@ export function Picked(props) {
         <h2 className="picked__title">THE HOUSE PICKED</h2>
         {!isHide ?
           <animated.div style={houseChoiceProps}>
-            <Button name={houseChoiceName} result={result} />
+            <Button name={houseChoiceName} result={result} mode={props.mode} />
             {/* {result === "YOU LOSE" && <div style={{ position: "absolute", top: "0", width: "200px", height: "200px", borderRadius: "50%", boxShadow: "0 0 60px #E0655E", zIndex: "-1" }} />} */}
           </animated.div>
           : <div className="picked__circle"></div>}
