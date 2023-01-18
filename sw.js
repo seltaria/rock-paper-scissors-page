@@ -1,8 +1,9 @@
 const staticCacheName = 'rps-app';
 const assetUrls = [
+  '/',
   './index.html',
-  './static/css/main.*.css',
-  './static/js/main.*.js',
+  './static/css/',
+  './static/js/',
   // '../src/index.css',
   // '../src/index.js',
   // '../src/App.js',
