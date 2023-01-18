@@ -288,6 +288,8 @@ button {
   position: absolute;
   bottom: 30px;
   right: 30px;
+  display: flex;
+  gap: 20px;
 }
 
 .mode__button,
@@ -298,10 +300,6 @@ button {
   color: white;
   border: 1px solid white;
   border-radius: 8px;
-}
-
-.mode__button {
-  margin-right: 20px;
 }
 
 .rules__modal {
@@ -342,6 +340,10 @@ button {
     --width: 100px;
   }
 
+  .header {
+    margin-bottom: 20px;
+  }
+
   .main__buttons {
     padding-top: 30px;
     background-size: 200px;
@@ -361,4 +363,14 @@ button {
   .picked__button {
     padding: 10px 10px;
   }
+}
+
+@media (max-width: 350px) {
+
+  .main__btns {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
 }
