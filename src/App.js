@@ -28,13 +28,13 @@ export function App() {
       <Main mode={mode} />
       <div className="main__btns">
         <button
-          className="mode__button"
-          onClick={toggleMode}>
-          CHANGE GAME MODE</button>
-        <button
           className="rules__button"
           onClick={openRules}>
           RULES</button>
+        <button
+          className="mode__button"
+          onClick={toggleMode}>
+          CHANGE MODE</button>
       </div>
       {isModalOpen && <Rules setIsModalOpen={setIsModalOpen} mode={mode} />}
     </div>
