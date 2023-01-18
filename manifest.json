@@ -1,0 +1,9 @@
+{
+  "name": "Rock Paper Scissors PWA",
+  "short_name": "RPS",
+  "theme_color": "hsl(214,47%,23%)",
+  "background_color": "hsl(214,47%,23%)",
+  "display": "standalone",
+  "orientation": "portrait",
+  "start_url": "."
+}
