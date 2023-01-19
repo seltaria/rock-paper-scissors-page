@@ -4,16 +4,6 @@ const assetUrls = [
   './index.html',
   './static/css/',
   './static/js/',
-  // '../src/index.css',
-  // '../src/index.js',
-  // '../src/App.js',
-  // '../src/store/reducers.js',
-  // '../src/store/store-reducer.js',
-  // '../src/components/Button.js',
-  // '../src/components/Header.js',
-  // '../src/components/Main.js',
-  // '../src/components/Picked.js',
-  // '../src/components/Rules.js',
 ]
 
 self.addEventListener('install', async event => {
