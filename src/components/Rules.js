@@ -1,5 +1,6 @@
 import React from "react";
 import { useSpring, animated } from "react-spring";
+import { BonusRules, StandardRules } from "./RulesSvg";
 
 export function Rules(props) {
 
@@ -19,7 +20,8 @@ export function Rules(props) {
           </button>
         </div>
         <div className="rules__content">
-          <img src={`./images/image-rules${props.mode === "bonus" ? "-bonus" : ""}.svg`} alt="rules" />
+          {props.mode === "standard" && <StandardRules />}
+          {props.mode === "bonus" && <BonusRules />}
         </div>
       </animated.div>
     </div>

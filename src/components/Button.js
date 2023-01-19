@@ -1,4 +1,5 @@
 import React from "react";
+import { LizardIcon, PaperIcon, RockIcon, ScissorsIcon, SpockIcon } from "./BtnIcons";
 
 export function Button(props) {
 
@@ -42,7 +43,11 @@ export function Button(props) {
       style={styles}
       onClick={handleClick}>
       <div className="button__inner">
-        <img src={`./images/icon-${props.name}.svg`} alt="" />
+        {props.name === "rock" && <RockIcon />}
+        {props.name === "paper" && <PaperIcon />}
+        {props.name === "scissors" && <ScissorsIcon />}
+        {props.name === "lizard" && <LizardIcon />}
+        {props.name === "spock" && <SpockIcon />}
       </div>
       {/* {props.result === "YOU WIN" && <div style={{ position: "absolute", width: "200px", height: "200px", borderRadius: "50%", boxShadow: "0 0 60px rgba(200,200,200,0.7)", zIndex: "-1" }} />} */}
     </button>
