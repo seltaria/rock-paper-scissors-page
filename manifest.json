@@ -6,7 +6,7 @@
   "display": "standalone",
   "orientation": "portrait",
   "scope": "/",
-  "start_url": ".",
+  "start_url": "https://seltaria.github.io/rock-paper-scissors-page",
   "icons": [
     {
       "src": "./android-chrome-192x192.png",
