@@ -30,7 +30,7 @@
 
   --duration: .2s;
 
-  --width: 200px;
+  --width: 170px;
 }
 
 * {
@@ -214,9 +214,8 @@ button {
   box-shadow: inset 0px 8px 0px rgba(149, 149, 149, 0.4);
 }
 
-.button img {
-  width: calc(var(--width) / 3);
-  height: calc(var(--width) / 3);
+.button__icon {
+  transform: scale(1);
 }
 
 /*==========*/
@@ -351,6 +350,10 @@ button {
   .button__inner {
     width: calc(var(--width) - 30px);
     height: calc(var(--width) - 30px);
+  }
+
+  .button__icon {
+    transform: scale(0.7);
   }
 
   .picked__title {
